@@ -124,9 +124,9 @@ for i in range(0,len(palabra)):
 print("fin bucle con index y continue")
 
 #Infinite loop with while
-while True:
-    print("socorro xD")
-print("fin?")
+# while True:
+#     print("socorro xD")
+# print("fin?")
 #Crtx+c to end the loop
 
 ####################3
@@ -254,7 +254,6 @@ for elemento in lista:
 print('la suma total es',suma)
 
 #CALCULANDO MEDIAS
- lista=[1,2,3,45,5,6,7,7]
 print(sum(lista)/len(lista)) #Esto da la media de la lista
 
 #Como lo hariamos sin sum ni length?Pues tendríamos que contar los elementos,
@@ -268,3 +267,107 @@ for elemento in lista:
     suma=suma+elemento #sumar elementos
 media=suma/cuenta
 print('la media es',media)
+
+####
+
+##ESTA TAL ELELENTO EN UNA LISTA?
+
+print(7 in lista) #esto hace la pregunta
+#Comolo hariamos sin in? Pues con bucles
+
+existe= False #variable inicialización
+valor=7 #el valor a comprobar
+cuenta=0 #pa contar cuantas veces existe
+
+for elemento in lista:
+    print('estamos en el elemento ',elemento)
+    if elemento==valor:
+        existe=True
+        cuenta=cuenta+1
+        break #cuando se de el true, se acaba el bucle, y no mira todos los elementos,
+        #al ver que ya existe uno, se para
+print('Se acabo el loop')
+print(existe)
+print(cuenta)
+
+#PROBELMAS DE MAYOR Y MENOR 
+print(max(lista)) #comandos para hacerlo
+print(min(lista)) #comandos para ahcerlo
+
+#Con bucle lo harías así:
+mayor= None #none pq poner 0 es malo pq si hay numeros negativos ya el 0 es mayor
+menor= None 
+
+for elemento in lista:
+    if mayor==None or menor==None: #primera iteracion
+        mayor=elemento
+        menor=elemento
+        #así, la primera iteracion es decir q el primer elementoe s mayor y menor, en
+        #vez de inicializarlo directamente decarando eso.
+    else: #esto es el rest de iteraciones
+        if elemento>mayor: #el igual no es necesario, pq ya está guardado.
+            mayor=elemento
+        if elemento<menor:
+            menor=elemento
+print(mayor)
+print(menor)
+
+
+        #############################
+##########MODULO 5 ############
+##########################3##
+
+##FUNCIONES
+
+def suma(sumando1,sumando2): #definición de la función    
+    print (f' el resultado es {sumando1+sumando2}')
+    print(f'la lista anterior era {lista}')
+suma(3,5) #llamada a la función
+#OJO, aqui sí puedes acceder a las variables de fuera, no hace falta global, como en
+#MATLAB.Esto en modo lectura.  Para modificarla sí ahce falta:
+    
+def funcion():
+    global lista #para modificar el valor de la variable ya definida lista
+    lista=[33,333,3333]
+    print(lista)
+funcion() 
+
+#Return
+
+def sumaa(sumando1, sumando2):
+    total=sumando1+sumando2
+    return total 
+resultado=sumaa(5,7) #eso te guarda la variable, debido al return.
+#recuerda q el return corta la funcion, y se sale, asi q debe ser lo último
+
+def sumaaa(sumando1, sumando2):
+    total=sumando1+sumando2
+    return total,'mi mensaje' 
+resultado,mensaje=sumaaa(5,7) #asi se guardarían ambas cosas, aunq es una forma rara 
+#de guardar cosas, no te voy a mentir. 
+
+##LIBRERIAS
+
+import math #importas el paquete o librerías de mates
+help(math) #te da todo lo que puede hacer
+
+math.cos(math.pi) #cálculo del coseno de pi
+
+#LLAMANDO A FUNCIONES DESDE OBJETOS
+
+mitexto='fuck, its sunday'
+#De help(str) veo todas las cosas q puedo hacer cone so, y una es:
+    
+str.title(mitexto) #esto pone Fuck, Its Sunday, mayus al principio de cada palabra
+#Tb podría ahcer:
+mitexto.title() #da lo mismo, y es mas simple. 
+
+#Para encadenar llamadas:
+mitexto.replace('Fuck','God') #cambia Fuck for God
+#tb podría ahcer el title ahora:
+mitexto.replace('Fuck','God').title()
+
+
+
+
+
